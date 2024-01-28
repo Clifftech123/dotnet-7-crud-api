@@ -1,9 +1,7 @@
 using dotnet_7_crud_api.Data;
 using dotnet_7_crud_api.Helpers;
-using dotnet_7_crud_api.Repositories;
+using dotnet_7_crud_api.Services;
 using System.Text.Json.Serialization;
-using WebApi.Repositories;
-using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +26,6 @@ var builder = WebApplication.CreateBuilder(args);
 
     // configure DI for application services
     services.AddSingleton<DataContext>();
-    services.AddScoped<IUserRepository, UserRepository>();
     services.AddScoped<IUserService, UserService>();
 
     // Register the Swagger generator with default settings
@@ -42,7 +39,7 @@ var app = builder.Build();
 {
     using var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<DataContext>();
-    await context.Init();
+  
 }
 
 // configure HTTP request pipeline

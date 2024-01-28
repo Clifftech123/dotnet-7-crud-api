@@ -8,11 +8,9 @@ namespace dotnet_7_crud_api.Helpers
     {
         public AutoMapperProfile()
         {
-            // CreateRequest -> User
-            CreateMap<CreateRequest, User>();
-
             // UpdateRequest -> User
             CreateMap<UpdateRequest, User>()
+                .ForMember(dest => dest.Guid, opt => opt.Ignore()) // Ignore the Guid property
                 .ForAllMembers(x => x.Condition(
                     (src, dest, prop) =>
                     {
@@ -26,6 +24,9 @@ namespace dotnet_7_crud_api.Helpers
                         return true;
                     }
                 ));
+
+            // Add this line to create a mapping from CreateRequest to User
+            CreateMap<CreateRequest, User>();
         }
     }
 }
