@@ -2,6 +2,11 @@
 
 Welcome to the dotnet-7-crud-api, a robust .NET Core 7 CRUD (Create, Read, Update, Delete) API designed to efficiently manage users within a database.
 
+
+<!-- Addiing the over view image here for users  -->
+
+![image](/asstes//imageone.png)
+
 ## Overview
 
 This API leverages modern technologies such as dotnet, C#, Entity Framework, SQL Server, BCrypt, AutoMapper, and Swashbuckle to offer seamless user management functionalities.
